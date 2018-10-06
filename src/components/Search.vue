@@ -9,12 +9,14 @@
 export default {
   data() {
     return {
-      query: ''
+      query: 'catoolin'
     }
   },
   methods: {
     search() {
-      this.$store.dispatch('search', this.query);
+      // var page = this.$route.params.page;
+      // this.$store.dispatch('search', this.query, 2);
+      this.$router.push('/search');
     }
   }
 }

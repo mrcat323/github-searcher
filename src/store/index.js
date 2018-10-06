@@ -27,11 +27,12 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    search ({ commit }, query) {
-      const url = 'https://api.github.com/search/repositories?q=' + query + '&per_page=100';
+    search ({ commit }, query, page) {
+      const url = 'https://api.github.com/search/repositories?q=' + query + '&page=' + page + '&per_page=100';
 
       Vue.http.get(url).then(function (response) {
-        const list = response.body.items;
+        const list = response.body.items,
+              total_count = response.body.total_count;
         // console.log(list);
         commit('set', {type: 'repositories', items: list});
       }, function (error) {
