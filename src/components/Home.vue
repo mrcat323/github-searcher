@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import Bootstrap from 'bootstrap'
-
 export default {
   data() {
     return {

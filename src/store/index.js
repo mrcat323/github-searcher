@@ -27,8 +27,8 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    search ({ commit }, query, page) {
-      const url = 'https://api.github.com/search/repositories?q=' + query + '&page=' + page + '&per_page=100';
+    search ({ commit }, query) {
+      const url = 'https://api.github.com/search/repositories?q=' + query + '&page=1&per_page=100';
 
       Vue.http.get(url).then(function (response) {
         const list = response.body.items,

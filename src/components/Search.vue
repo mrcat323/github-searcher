@@ -1,7 +1,7 @@
 <template>
   <div class="Search">
     <input type="text" class="Search__input" v-model="query" @keyup.enter="search">
-    <button class="Search__button" @click="search">Search</button>
+    <button class="Search__button" @click="search"><i class="fa fa-search"></i></button>
   </div>
 </template>
 
@@ -14,9 +14,8 @@ export default {
   },
   methods: {
     search() {
-      // var page = this.$route.params.page;
-      // this.$store.dispatch('search', this.query, 2);
-      this.$router.push('/search');
+      this.$store.dispatch('search', this.query);
+      this.$router.push('/page');
     }
   }
 }
