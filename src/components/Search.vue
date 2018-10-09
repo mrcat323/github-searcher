@@ -15,8 +15,18 @@ export default {
   },
   methods: {
     search() {
-      this.$store.dispatch('search', this.query, this.page);
-      this.$router.push('/page/${this.page}');
+      if (this.$route.params.id >= 1) {
+        this.page = this.$route.params.id;
+      }
+      var args = {
+        query: this.query,
+        page: this.page
+      };
+      this.$store.dispatch('search', args);
+      // console.log(this.page);
+      if (!this.$route.params.id) {
+        this.$router.push('/page/' + this.page);
+      }
     }
   }
 }

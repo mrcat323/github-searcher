@@ -9,7 +9,7 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', component: Home },
-    { path: '/page', component: Page }
+    { path: '/page/:id', name: 'page', component: Page }
 
   ]
 });
