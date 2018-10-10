@@ -27,6 +27,7 @@ export default {
       if (!this.$route.params.id) {
         this.$router.push('/page/' + this.page);
       }
+      eventBus.$emit('grabQuery', this.query);
     }
   }
 }

@@ -7,7 +7,8 @@ Vue.use(VueResource)
 
 const store = new Vuex.Store({
   state: {
-    repositories: []
+    repositories: [],
+    args: {}
   },
   getters: {
     repositories(state) {
@@ -19,6 +20,10 @@ const store = new Vuex.Store({
         repo.lang = repo.language;
         return repo;
       });
+    },
+    args(state) {
+      let args = state.args;
+      return args;
     }
   },
   mutations: {
@@ -32,8 +37,9 @@ const store = new Vuex.Store({
 
       Vue.http.get(url).then(function (response) {
         var list = response.body.items,
-              total_count = response.body.total_count;
+            total_count = response.body.total_count;
         commit('set', {type: 'repositories', items: list});
+        commit('set', {type: 'args', items: args});
       }, function (error) {
         console.log(error);
       });

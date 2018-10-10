@@ -11,21 +11,49 @@
     </div>
     <nav aria-label="...">
       <ul class="pager">
-        <li><router-link :to="{ name: 'page', params: { id: Number(page)-1 } } ">Previous</router-link></li>
-        <li><router-link :to="{ name: 'page', params: { id: Number(page)+1 } } ">Next</router-link></li>
+        <li @click="previous"><router-link :to="{name: 'page', params: { id: Number(page) - 1 } }" @click="previous">Previous</router-link></li>
+        <li @click="next"><router-link :to="{name: 'page', params: { id: Number(page) + 1 } }" @click="next">Next</router-link></li>
       </ul>
     </nav>
   </div>
 </template>
 <script>
   export default {
+    data() {
+      return {
+        query: ''
+      }
+    },
+    methods: {
+      next() {
+        var args = {
+          query: this.args.query,
+          page: Number(this.args.page) + 1
+        };
+        this.$store.dispatch('search', args);
+        // this.$router.push('/page/' + args.page);
+
+      },
+      previous() {
+        var args = {
+          query: this.args.query,
+          page: Number(this.args.page) - 1
+        };
+        this.$store.dispatch('search', args);
+        // this.$router.push('/page/' + args.page);
+
+      }
+    },
     computed: {
       page() {
         return this.$route.params.id;
       },
+      args() {
+        return this.$store.getters.args;
+      },
       repositories() {
         return this.$store.getters.repositories;
       }
-    }
+    },
   }
 </script>
