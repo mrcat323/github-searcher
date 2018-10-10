@@ -15,19 +15,13 @@ export default {
   },
   methods: {
     search() {
-      if (this.$route.params.id >= 1) {
-        this.page = this.$route.params.id;
-      }
       var args = {
         query: this.query,
         page: this.page
       };
       this.$store.dispatch('search', args);
       // console.log(this.page);
-      if (!this.$route.params.id) {
-        this.$router.push('/page/' + this.page);
-      }
-      eventBus.$emit('grabQuery', this.query);
+      this.$router.push('/page/1');
     }
   }
 }

@@ -11,8 +11,8 @@
     </div>
     <nav aria-label="...">
       <ul class="pager">
-        <li @click="previous"><router-link :to="{name: 'page', params: { id: Number(page) - 1 } }" @click="previous">Previous</router-link></li>
-        <li @click="next"><router-link :to="{name: 'page', params: { id: Number(page) + 1 } }" @click="next">Next</router-link></li>
+        <li :class="previousFirst" @click="previous"><router-link :to="{name: 'page', params: { id: Number(page) - 1 } }" @click="previous">Previous</router-link></li>
+        <li :class="nextLast" @click="next"><router-link :to="{name: 'page', params: { id: Number(page) + 1 } }" @click="next">Next</router-link></li>
       </ul>
     </nav>
   </div>
@@ -53,6 +53,12 @@
       },
       repositories() {
         return this.$store.getters.repositories;
+      },
+      previousFirst() {
+        return (this.page == 1) ? 'disabled' : 'works';
+      },
+      nextLast() {
+        return (this.page == 10) ? 'disabled' : 'works';
       }
     },
   }
