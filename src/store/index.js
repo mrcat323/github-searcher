@@ -38,6 +38,7 @@ const store = new Vuex.Store({
       Vue.http.get(url).then(function (response) {
         var list = response.body.items,
             total_count = response.body.total_count;
+        args.count = total_count;
         commit('set', {type: 'repositories', items: list});
         commit('set', {type: 'args', items: args});
       }, function (error) {

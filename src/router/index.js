@@ -10,7 +10,6 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/page/:id', name: 'page', component: Page }
-
   ]
 });
 

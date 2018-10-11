@@ -12,18 +12,13 @@
     <nav aria-label="...">
       <ul class="pager">
         <li :class="previousFirst" @click="previous"><router-link :to="{name: 'page', params: { id: Number(page) - 1 } }" @click="previous">Previous</router-link></li>
-        <li :class="nextLast" @click="next"><router-link :to="{name: 'page', params: { id: Number(page) + 1 } }" @click="next">Next</router-link></li>
+        <li :class="nextCheck" @click="next"><router-link :to="{name: 'page', params: { id: Number(page) + 1 } }" @click="next">Next</router-link></li>
       </ul>
     </nav>
   </div>
 </template>
 <script>
   export default {
-    data() {
-      return {
-        query: ''
-      }
-    },
     methods: {
       next() {
         var args = {
@@ -59,7 +54,18 @@
       },
       nextLast() {
         return (this.page == 10) ? 'disabled' : 'works';
+      },
+      nextCheck() {
+        if (this.page !== 10) {
+
+          if (this.repositories.length <= 100 && this.repositories.length * Number(this.page) >= this.args.count) {
+            return 'disabled';
+          } else {
+            return 'works';
+          }
+        }
+        return 'disabled';
       }
-    },
+    }
   }
 </script>
