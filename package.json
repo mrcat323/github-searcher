@@ -1,6 +1,6 @@
 {
   "name": "github-searcher",
-  "description": "Search GitHub repositories. Project based on Vue JS, created for practicing Vue JS, Vuex",
+  "description": "Search repositories over GitHub. Project based on Vue JS, created for practicing Vue JS, Vuex",
   "version": "0.0.4-beta",
   "author": "Mr. CaT <mrcat323@gmail.com>",
   "license": "MIT",
