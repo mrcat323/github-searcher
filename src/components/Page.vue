@@ -11,6 +11,3 @@ export default {
   components: { Repositories }
 }
 </script>
-
-<style lang="css">
-</style>
