@@ -1,13 +1,14 @@
-# github-searcher
+# github-searcher v0.0.4
 
 > Search GitHub repositories. Project based on Vue JS, created for practicing Vue JS, Vuex
 
-## 0.0.4-beta
-For now it's *BETA* and it doesn't mean that you shouldn't use it, you have to use it. The project was created just for a practice, will be improved step by step.
+## v0.0.4 full release
+
 ### CHANGELOG: Or what's new
-* Now you can view over 100 repositories per page.
-* You can use pagination (for now it's pager).
-* Bugs been fixed.
+* Problem with pager (pagination thing) fixed
+  * Also problems with its links
+  * Disable and work mode
+* Bugs have been fixed
 
 ## Get started
 Alright, you just got know what's new here, let's get started with using it. After you Sir.
