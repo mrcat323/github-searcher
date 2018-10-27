@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      welcome: 'Hello World!'
+      welcome: 'GitHub Searcher v0.0.4 full !'
     }
   }
 }
