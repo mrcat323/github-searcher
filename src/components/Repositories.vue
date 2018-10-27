@@ -11,14 +11,21 @@
     </div>
     <nav aria-label="...">
       <ul class="pager">
-        <li :class="previousFirst" @click="previous"><router-link :to="{name: 'page', params: { id: Number(page) - 1 } }" @click="previous">Previous</router-link></li>
-        <li :class="nextCheck" @click="next"><router-link :to="{name: 'page', params: { id: Number(page) + 1 } }" @click="next">Next</router-link></li>
+        <li class="disabled" v-if="page == 1"><router-link :to="{name: 'page', params: { id: Number(this.page) } }">Previous</router-link></li>
+        <li class="works" @click="previous" v-else><router-link :to="{name: 'page', params: { id: Number(this.page) - 1 } }">Previous</router-link></li>
+        <li v-if="page !== 10 && status == 'works'" @click="next"><router-link :to="nextCheck">Next</router-link></li>
+        <li :class="status" v-else><router-link :to="nextCheck">Next</router-link></li>
       </ul>
     </nav>
   </div>
 </template>
 <script>
   export default {
+    data() {
+      return {
+        status: 'works'
+      }
+    },
     methods: {
       next() {
         var args = {
@@ -26,8 +33,6 @@
           page: Number(this.args.page) + 1
         };
         this.$store.dispatch('search', args);
-        // this.$router.push('/page/' + args.page);
-
       },
       previous() {
         var args = {
@@ -35,8 +40,6 @@
           page: Number(this.args.page) - 1
         };
         this.$store.dispatch('search', args);
-        // this.$router.push('/page/' + args.page);
-
       }
     },
     computed: {
@@ -49,22 +52,19 @@
       repositories() {
         return this.$store.getters.repositories;
       },
-      previousFirst() {
-        return (this.page == 1) ? 'disabled' : 'works';
-      },
-      nextLast() {
-        return (this.page == 10) ? 'disabled' : 'works';
-      },
       nextCheck() {
         if (this.page !== 10) {
-
-          if (this.repositories.length <= 100 && this.repositories.length * Number(this.page) >= this.args.count) {
-            return 'disabled';
+          var pages = Math.ceil(this.args.count / 100);
+          if (this.page < pages) {
+            this.status = 'works';
+            return {name: 'page', params: { id: Number(this.page) + 1 } };
           } else {
-            return 'works';
+            this.status = 'disabled';
+            return {name: 'page', params: { id: Number(this.page) } };
           }
         }
-        return 'disabled';
+        this.status = 'disabled';
+        return {name: 'page', params: { id: Number(this.page) } };
       }
     }
   }
