@@ -31,40 +31,40 @@
         var args = {
           query: this.args.query,
           page: Number(this.args.page) + 1
-        };
-        this.$store.dispatch('search', args);
+        }
+        this.$store.dispatch('search', args)
       },
       previous() {
         var args = {
           query: this.args.query,
           page: Number(this.args.page) - 1
-        };
-        this.$store.dispatch('search', args);
+        }
+        this.$store.dispatch('search', args)
       }
     },
     computed: {
       page() {
-        return this.$route.params.id;
+        return this.$route.params.id
       },
       args() {
-        return this.$store.getters.args;
+        return this.$store.getters.args
       },
       repositories() {
-        return this.$store.getters.repositories;
+        return this.$store.getters.repositories
       },
       nextCheck() {
         if (this.page !== 10) {
-          var pages = Math.ceil(this.args.count / 100);
+          var pages = Math.ceil(this.args.count / 100)
           if (this.page < pages) {
-            this.status = 'works';
-            return {name: 'page', params: { id: Number(this.page) + 1 } };
+            this.status = 'works'
+            return {name: 'page', params: { id: Number(this.page) + 1 } }
           } else {
-            this.status = 'disabled';
-            return {name: 'page', params: { id: Number(this.page) } };
+            this.status = 'disabled'
+            return {name: 'page', params: { id: Number(this.page) } }
           }
         }
-        this.status = 'disabled';
-        return {name: 'page', params: { id: Number(this.page) } };
+        this.status = 'disabled'
+        return {name: 'page', params: { id: Number(this.page) } }
       }
     }
   }
