@@ -1,14 +1,11 @@
-# github-searcher v0.0.4
+# github-searcher v0.0.4.1
 
-> Search GitHub repositories. Project based on Vue JS, created for practicing Vue JS, Vuex
+> Search GitHub repositories. Project based on Vue JS, Vuex, created for practicing Vue JS, Vuex
 
-## v0.0.4 full release
+## v0.0.4.1 is released
 
 ### CHANGELOG: Or what's new
-* Problem with pager (pagination thing) fixed
-  * Also problems with its links
-  * Disable and work mode
-* Bugs have been fixed
+* Removed trash
 
 ## Get started
 Alright, you just got know what's new here, let's get started with using it. After you Sir.

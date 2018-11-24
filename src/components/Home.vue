@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      welcome: 'GitHub Searcher v0.0.4 full !'
+      welcome: 'GitHub Searcher v0.0.4.1 is now released !'
     }
   }
 }
