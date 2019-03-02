@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.21"
+    "vue": "^2.6.8"
   },
   "browserslist": [
     "> 1%",
@@ -30,7 +30,7 @@
     "vue-loader": "^15.5.1",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.2",
-    "vue-template-compiler": "^2.5.21",
+    "vue-template-compiler": "^2.6.8",
     "vuex": "^3.0.1",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.11.3"
