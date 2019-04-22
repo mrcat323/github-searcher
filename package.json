@@ -29,8 +29,8 @@
     "sass-loader": "^7.1.0",
     "vue-loader": "^15.5.1",
     "vue-resource": "^1.5.1",
-    "vue-router": "^3.0.2",
-    "vue-template-compiler": "^2.6.10",
+    "vue-router": "^3.0.6",
+    "vue-template-compiler": "^2.5.21",
     "vuex": "^3.0.1",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.11.3"
