@@ -27,7 +27,7 @@
     "file-loader": "^3.0.1",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
-    "vue-loader": "^15.7.0",
+    "vue-loader": "^15.8.3",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.6",
     "vue-template-compiler": "^2.5.21",
